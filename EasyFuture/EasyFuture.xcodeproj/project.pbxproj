@@ -7,9 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		96151B8520EE2C5600F63A4C /* FutureError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96151B8420EE2C5600F63A4C /* FutureError.swift */; };
+		96151B8720EE472200F63A4C /* Sequence+Future.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96151B8620EE472200F63A4C /* Sequence+Future.swift */; };
+		96151B8920EE517700F63A4C /* FutureType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96151B8820EE517700F63A4C /* FutureType.swift */; };
+		96151B8B20EE5A7700F63A4C /* ThrowsFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96151B8A20EE5A7700F63A4C /* ThrowsFunction.swift */; };
+		96151B8D20EE7D3800F63A4C /* FutureErrorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96151B8C20EE7D3800F63A4C /* FutureErrorTests.swift */; };
+		96151B8F20F3ACBB00F63A4C /* FuturesSequenceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96151B8E20F3ACBB00F63A4C /* FuturesSequenceTests.swift */; };
 		964C3FEF20E7A3260092D5D4 /* EasyFuture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 964C3FE520E7A3260092D5D4 /* EasyFuture.framework */; };
-		964C3FF420E7A3260092D5D4 /* EasyFutureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C3FF320E7A3260092D5D4 /* EasyFutureTests.swift */; };
+		964C3FF420E7A3260092D5D4 /* FutureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C3FF320E7A3260092D5D4 /* FutureTests.swift */; };
 		964C3FF620E7A3260092D5D4 /* EasyFuture.h in Headers */ = {isa = PBXBuildFile; fileRef = 964C3FE820E7A3260092D5D4 /* EasyFuture.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		964C400020E7A58D0092D5D4 /* Future.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C3FFF20E7A58D0092D5D4 /* Future.swift */; };
+		964C400220E7A9A40092D5D4 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C400120E7A9A40092D5D4 /* Result.swift */; };
+		964C400420E7E8B60092D5D4 /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964C400320E7E8B60092D5D4 /* Promise.swift */; };
+		969A886420EA7A3C007F46CF /* DataGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A886320EA7A3C007F46CF /* DataGenerator.swift */; };
+		969A886820ECD0BA007F46CF /* ResultTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A886720ECD0BA007F46CF /* ResultTests.swift */; };
+		969A886A20ECD889007F46CF /* EquatableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A886920ECD889007F46CF /* EquatableError.swift */; };
+		969A886C20ECDDC9007F46CF /* PromiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 969A886B20ECDDC9007F46CF /* PromiseTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,12 +36,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		96151B8420EE2C5600F63A4C /* FutureError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureError.swift; sourceTree = "<group>"; };
+		96151B8620EE472200F63A4C /* Sequence+Future.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Sequence+Future.swift"; sourceTree = "<group>"; };
+		96151B8820EE517700F63A4C /* FutureType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureType.swift; sourceTree = "<group>"; };
+		96151B8A20EE5A7700F63A4C /* ThrowsFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrowsFunction.swift; sourceTree = "<group>"; };
+		96151B8C20EE7D3800F63A4C /* FutureErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureErrorTests.swift; sourceTree = "<group>"; };
+		96151B8E20F3ACBB00F63A4C /* FuturesSequenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuturesSequenceTests.swift; sourceTree = "<group>"; };
 		964C3FE520E7A3260092D5D4 /* EasyFuture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EasyFuture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		964C3FE820E7A3260092D5D4 /* EasyFuture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EasyFuture.h; sourceTree = "<group>"; };
 		964C3FE920E7A3260092D5D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		964C3FEE20E7A3260092D5D4 /* EasyFutureTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasyFutureTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		964C3FF320E7A3260092D5D4 /* EasyFutureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasyFutureTests.swift; sourceTree = "<group>"; };
+		964C3FF320E7A3260092D5D4 /* FutureTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureTests.swift; sourceTree = "<group>"; };
 		964C3FF520E7A3260092D5D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		964C3FFF20E7A58D0092D5D4 /* Future.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Future.swift; sourceTree = "<group>"; };
+		964C400120E7A9A40092D5D4 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		964C400320E7E8B60092D5D4 /* Promise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
+		969A886320EA7A3C007F46CF /* DataGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataGenerator.swift; sourceTree = "<group>"; };
+		969A886720ECD0BA007F46CF /* ResultTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultTests.swift; sourceTree = "<group>"; };
+		969A886920ECD889007F46CF /* EquatableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquatableError.swift; sourceTree = "<group>"; };
+		969A886B20ECDDC9007F46CF /* PromiseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +99,12 @@
 			children = (
 				964C3FE820E7A3260092D5D4 /* EasyFuture.h */,
 				964C3FE920E7A3260092D5D4 /* Info.plist */,
+				964C3FFF20E7A58D0092D5D4 /* Future.swift */,
+				964C400120E7A9A40092D5D4 /* Result.swift */,
+				964C400320E7E8B60092D5D4 /* Promise.swift */,
+				96151B8420EE2C5600F63A4C /* FutureError.swift */,
+				96151B8620EE472200F63A4C /* Sequence+Future.swift */,
+				96151B8820EE517700F63A4C /* FutureType.swift */,
 			);
 			path = EasyFuture;
 			sourceTree = "<group>";
@@ -80,10 +112,33 @@
 		964C3FF220E7A3260092D5D4 /* EasyFutureTests */ = {
 			isa = PBXGroup;
 			children = (
-				964C3FF320E7A3260092D5D4 /* EasyFutureTests.swift */,
+				969A886520EBA2D0007F46CF /* Tests */,
+				969A886220EA7A26007F46CF /* Helpers */,
 				964C3FF520E7A3260092D5D4 /* Info.plist */,
 			);
 			path = EasyFutureTests;
+			sourceTree = "<group>";
+		};
+		969A886220EA7A26007F46CF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				969A886320EA7A3C007F46CF /* DataGenerator.swift */,
+				969A886920ECD889007F46CF /* EquatableError.swift */,
+				96151B8A20EE5A7700F63A4C /* ThrowsFunction.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		969A886520EBA2D0007F46CF /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				964C3FF320E7A3260092D5D4 /* FutureTests.swift */,
+				969A886720ECD0BA007F46CF /* ResultTests.swift */,
+				969A886B20ECDDC9007F46CF /* PromiseTests.swift */,
+				96151B8C20EE7D3800F63A4C /* FutureErrorTests.swift */,
+				96151B8E20F3ACBB00F63A4C /* FuturesSequenceTests.swift */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +203,7 @@
 				TargetAttributes = {
 					964C3FE420E7A3260092D5D4 = {
 						CreatedOnToolsVersion = 9.3.1;
+						LastSwiftMigration = 0930;
 					};
 					964C3FED20E7A3260092D5D4 = {
 						CreatedOnToolsVersion = 9.3.1;
@@ -194,6 +250,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				964C400220E7A9A40092D5D4 /* Result.swift in Sources */,
+				96151B8520EE2C5600F63A4C /* FutureError.swift in Sources */,
+				96151B8920EE517700F63A4C /* FutureType.swift in Sources */,
+				964C400020E7A58D0092D5D4 /* Future.swift in Sources */,
+				964C400420E7E8B60092D5D4 /* Promise.swift in Sources */,
+				96151B8720EE472200F63A4C /* Sequence+Future.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,7 +263,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				964C3FF420E7A3260092D5D4 /* EasyFutureTests.swift in Sources */,
+				96151B8B20EE5A7700F63A4C /* ThrowsFunction.swift in Sources */,
+				969A886820ECD0BA007F46CF /* ResultTests.swift in Sources */,
+				969A886C20ECDDC9007F46CF /* PromiseTests.swift in Sources */,
+				969A886A20ECD889007F46CF /* EquatableError.swift in Sources */,
+				964C3FF420E7A3260092D5D4 /* FutureTests.swift in Sources */,
+				969A886420EA7A3C007F46CF /* DataGenerator.swift in Sources */,
+				96151B8D20EE7D3800F63A4C /* FutureErrorTests.swift in Sources */,
+				96151B8F20F3ACBB00F63A4C /* FuturesSequenceTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +343,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
@@ -330,6 +400,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -339,6 +410,7 @@
 		964C3FFA20E7A3260092D5D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -357,6 +429,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.dima.mishchenko.EasyFuture;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -365,6 +438,7 @@
 		964C3FFB20E7A3260092D5D4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -391,6 +465,7 @@
 		964C3FFD20E7A3260092D5D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 77X75EH6F4;
 				INFOPLIST_FILE = EasyFutureTests/Info.plist;
@@ -409,6 +484,7 @@
 		964C3FFE20E7A3260092D5D4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 77X75EH6F4;
 				INFOPLIST_FILE = EasyFutureTests/Info.plist;
