@@ -1,7 +1,5 @@
-language: swift
+language: objective-c
 osx_image: xcode9.4
-xcode_project: EasyFutures.xcodeproj 
-xcode_scheme: EasyFuturesTests
 script:
   - xcodebuild -version
   - xcodebuild -project EasyFutures.xcodeproj -scheme EasyFutures -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 6" -configuration Release ONLY_ACTIVE_ARCH=YES -enableCodeCoverage YES test
