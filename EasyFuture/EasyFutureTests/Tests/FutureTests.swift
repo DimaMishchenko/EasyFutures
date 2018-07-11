@@ -34,6 +34,27 @@ class FutureTests: XCTestCase {
         XCTAssert(isSuccess)
     }
     
+    func testInit_WithOperation_WithThrowsError() {
+        
+        //
+        let future = Future<Bool> { (completion) in
+            throw DataGenerator.error
+        }
+        var isError = false
+        
+        ///
+        future.onSuccess { (value) in
+            XCTFail()
+        }
+        
+        future.onError { (error) in
+            isError = true
+        }
+        
+        //
+        XCTAssert(isError)
+    }
+    
     func testInit_WithOperation_WithError() {
         
         //
@@ -403,7 +424,7 @@ class FutureTests: XCTestCase {
         XCTAssert(firstErrorCalled && secondErrorCalled)
     }
     
-    // MARK: - Funtional composition
+    // MARK: - Functional composition
     
     func testMap_WhenMapAfterSuccess() {
         

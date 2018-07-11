@@ -11,7 +11,7 @@ import XCTest
 
 class ResultTests: XCTestCase {
     
-    // MARK: - Funtional composition
+    // MARK: - Functional composition
     
     func testMap_WhenValue() {
         

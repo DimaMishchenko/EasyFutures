@@ -42,6 +42,7 @@
 		96151B8A20EE5A7700F63A4C /* ThrowsFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrowsFunction.swift; sourceTree = "<group>"; };
 		96151B8C20EE7D3800F63A4C /* FutureErrorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FutureErrorTests.swift; sourceTree = "<group>"; };
 		96151B8E20F3ACBB00F63A4C /* FuturesSequenceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuturesSequenceTests.swift; sourceTree = "<group>"; };
+		96151B9120F4BA0F00F63A4C /* EasyFuturePlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; name = EasyFuturePlayground.playground; path = ../EasyFuturePlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		964C3FE520E7A3260092D5D4 /* EasyFuture.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = EasyFuture.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		964C3FE820E7A3260092D5D4 /* EasyFuture.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EasyFuture.h; sourceTree = "<group>"; };
 		964C3FE920E7A3260092D5D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -82,6 +83,7 @@
 				964C3FE720E7A3260092D5D4 /* EasyFuture */,
 				964C3FF220E7A3260092D5D4 /* EasyFutureTests */,
 				964C3FE620E7A3260092D5D4 /* Products */,
+				96151B9120F4BA0F00F63A4C /* EasyFuturePlayground.playground */,
 			);
 			sourceTree = "<group>";
 		};

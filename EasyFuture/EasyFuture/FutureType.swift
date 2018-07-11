@@ -24,19 +24,13 @@ public protocol FutureType {
     var isSuccess: Bool { get }
     var isError: Bool { get }
     
-    // MARK: - Completions
-    
-    func complete(_ result: Future<T>.ResultType)
-    func success(_ value: T)
-    func error(_ error: Error)
-    
     // MARK: - Callbacks
     
     @discardableResult func onComplete(_ completion: @escaping Future<T>.CallbackBlock) -> Self
     @discardableResult func onSuccess(_ completion: @escaping (T) -> ()) -> Self
     @discardableResult func onError(_ completion: @escaping (Error) -> ()) -> Self
     
-    // MARK: - Funtional composition
+    // MARK: - Functional composition
     
     func map<U>(_ transform: @escaping (T) throws -> U) rethrows -> Future<U>
     func flatMap<U>(_ transform: @escaping (T) throws -> Future<U>) rethrows -> Future<U>

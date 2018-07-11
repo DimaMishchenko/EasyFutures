@@ -57,7 +57,7 @@ public enum Result<T, E> {
         }
     }
     
-    // MARK: - Funtional composition
+    // MARK: - Functional composition
     
     public func map<U>(_ transform: (T) throws -> U) rethrows -> Result<U, E> {
         
