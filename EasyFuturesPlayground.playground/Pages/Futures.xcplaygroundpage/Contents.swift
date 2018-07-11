@@ -15,25 +15,25 @@ stringFuture.value // "string"
 //: But it also could be empty:
 let newStringFuture = Future<String>()
 newStringFuture.value // nil
-//: If something goes wrong Future can contain error and empty value:
+//: If something goes wrong the Future can contain error and value will be empty:
 let error = NSError(domain: "", code: -1, userInfo: nil)
 
 let errorFuture = Future<String>(error: error)
 
 errorFuture.error // error
 errorFuture.value // nil
-//: Actually Future contain "result" which can be empty, value or error. Future can be completed or not. If completed result will be value or error. If not completed result will be empty.
-//: We can detect Future state using isCompleted, isSuccess, isError properties:
+//: Actually the Future contains "result" which can be empty, value or error. The Future can be completed or not. If completed - the result will be value or error. If not completed - one will be empty.
+//: We can detect the Future state using isCompleted, isSuccess, isError properties:
 stringFuture.isCompleted // if completed - true, else - false
 stringFuture.isSuccess // if completed with value - true, else - false
 stringFuture.isError // if completed with error - true, else - false
-//: There are 4 ways to create (init) Future. With operation, with result, with value or with error:
+//: There are 5 ways to create (init) the Future. With operation, with result, with value, with error or with another future:
 let futureWithOperation = Future<String> { completion in
     // we can do async operation and then complete it with value or error
     completion(.value("value"))
  // completion(.error(error))
     
-    // you can also throw error (Future will complete with error)
+    // you can also throw error (the Future will complete with error)
 }
 
 let futureWithResult = Future<String>(result: .value("value")) // result can be .value(value) or .error(error)
@@ -41,7 +41,10 @@ let futureWithResult = Future<String>(result: .value("value")) // result can be 
 let futureWithValue = Future<String>(value: "value")
 
 let futureWithError = Future<String>(error: error)
-//: But how we are get a result?
+
+let oldFuture = Future<String>(value: "value")
+let futureWithFuture = Future<String>(future: oldFuture) // init with the future (same value type). the new future will be with the same result as the old future.
+//: But how we get a result?
 //: We can easily define "onComplete" callback.
 let futureWithAsyncCompletion = Future<Int> { completion in
     
@@ -76,7 +79,7 @@ futureWithAsyncCompletion.onSuccess { value in
 }.onError { error in
     // error
 }
-//: EasyFutures support multiple callbacks, so we can do something like this:
+//: An EasyFutures supports multiple callbacks, so we can do something like this:
 futureWithAsyncCompletion.onSuccess { value in
     // make this
 }

@@ -6,11 +6,11 @@ import EasyFutures
 import PlaygroundSupport
 PlaygroundPage.current.needsIndefiniteExecution = true
 //: # Composition
-//: EasyFutures are composable.
+//: An EasyFutures are composable.
 //: Supported combining functions:
 
 //: # - map:
-//: Returns new Future with result you return to closure or with error if first Future contains error.
+//: Returns the new Future with the result you return to closure or with error if the first Future contains error.
 // with value
 let mapFuture = Future<Int>(value: 100)
 mapFuture.onSuccess { value in
@@ -43,7 +43,7 @@ mapErrorFuture.map { value -> String in
     }
 }
 //: # - flatMap
-//: Returns new Future with Future you return to closure or with error if first Future contains error.
+//: Returns the new Future with the Future you return to closure or with error if the first Future contains error.
 let flatMapFuture = Future<Int>(value: 1)
 flatMapFuture.flatMap { value -> Future<String> in
     return Future<String>(value: "\(value * 100)%")
@@ -53,7 +53,7 @@ flatMapFuture.flatMap { value -> Future<String> in
 //: Error handling is same as map.
 
 //: # - filter
-//: Returns Future if value satisfies the filtering, else returns error.
+//: Returns the Future if value satisfies the filtering else returns error.
 let filterFuture = Future<Int>(value: 500)
 
 // value
@@ -93,7 +93,7 @@ filterFuture.filter(error: myCustomError) { value -> Bool in
     }
 }
 //: # - recover
-//: If Future contain or will contain error you can recover it with new value.
+//: If the Future contains or will contain error you can recover it with the new value.
 let recoverFuture = Future<Int>(error: error)
 
 recoverFuture.onComplete { result in
@@ -124,7 +124,7 @@ first.zip(second).onSuccess { firstValue, secondValue in
     print(secondValue) // 2
 }
 //: # - andThen
-//: Returns new Future with same value.
+//: Returns the new Future with the same value.
 let someFuture = Future<String>(value: "and")
 
 someFuture.onSuccess { value in
@@ -135,7 +135,7 @@ someFuture.onSuccess { value in
     print(value.count) // 3
 }
 //: # - flatten
-//: If value of Future is another Future you can flatten it.
+//: If the value of the Future is the another Future you can flatten it.
 let future = Future<Future<String>>(value: Future<String>(value: "value"))
 
 future.onSuccess { value in
@@ -147,7 +147,7 @@ future.flatten().onSuccess { value in
 }
 
 //: # Error handling
-//: "map", "flatMap", "filter" and "recover" can catch errors and ruturn Future with this error, so you don't need to handle it with do/catch.
+//: "map", "flatMap", "filter" and "recover" can catch errors and return the Future with this error, so you don't need to handle it with do/catch.
 let errorsHandling = Future<String>(value: "")
 let errorToThrow = NSError(domain: "", code: -1, userInfo: nil)
 
