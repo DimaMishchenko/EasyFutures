@@ -7,13 +7,13 @@ import EasyFutures
 import PlaygroundSupport
 PlaygroundPage.current.needsIndefiniteExecution = true
 //: # Promises
-//: Promises use to write functions that returns Futures.
-//: Promise contains Future instance and can complete it.
+//: The Promises are used to write functions that returns the Futures.
+//: The Promise contains the Future instance and can complete it.
 let promise = Promise<String>()
 promise.future // future
 
 promise.complete(.value("value")) // can be completed with .value(value) or .error(error)
-//: All ways to complete Future in Promise:
+//: All ways to complete the Future in the Promise:
 let value = "value"
 let error = NSError(domain: "", code: -1, userInfo: nil)
 
@@ -24,11 +24,13 @@ promise.complete(.error(error))
 promise.success(value)
 
 promise.error(error)
+
+promise.complete(Future<String>(value: value)) // with the other future
 //: # Examples
 //: # #1
 func loadData() -> Future<String> {
     
-    // create promise with String type
+    // create the promise with String type
     let promise = Promise<String>()
 
     // make some async operations
@@ -40,7 +42,7 @@ func loadData() -> Future<String> {
             promise.error(NSError(domain: "", code: -1, userInfo: nil)) // some error
         }
     }
-    // return future
+    // return the future
     return promise.future
 }
 
@@ -54,6 +56,39 @@ loadData().onSuccess { data in
     print(error)
 }
 //: # #2
+func makeSomething() -> Future<String> {
+    
+    // create the promise with String type
+    let promise = Promise<String>()
+    
+    // make some async operations
+    DispatchQueue.global().async {
+        
+        if let future = optionalFuture() {
+            promise.complete(future)
+        } else {
+            promise.error(NSError(domain: "", code: -1, userInfo: nil)) // some error
+        }
+    }
+    // return the future
+    return promise.future
+}
+
+func optionalFuture() -> Future<String>? {
+    
+    return Future<String>(value: "optional future value")
+}
+
+makeSomething().onComplete { result in
+    
+    switch result {
+    case .value(let value):
+        print(value) // "optional future value"
+    case .error(let error):
+        print(error)
+    }
+}
+//: # #3
 class ViewController: UIViewController {
     
     let dataManager = DataManager()
@@ -77,7 +112,7 @@ class DataManager {
     
     func loadData() -> Future<String> {
         
-        // create promise with String type
+        // create the promise with String type
         let promise = Promise<String>()
         
         // check is url valid
@@ -99,7 +134,7 @@ class DataManager {
         }
         task.resume()
         
-        // return future
+        // return the future
         return promise.future
    }
 }

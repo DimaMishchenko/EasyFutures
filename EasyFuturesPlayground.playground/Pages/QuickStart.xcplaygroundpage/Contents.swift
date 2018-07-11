@@ -6,7 +6,7 @@ import EasyFutures
 import PlaygroundSupport
 PlaygroundPage.current.needsIndefiniteExecution = true
 //: # Quick Start
-//: This is a quick example of EasyFuture. If you don't know what is Futures & Promises go to the [Futures page](Futures) and start from beginnig.
+//: This is a quick example of an EasyFutures. If you don't know what is Futures & Promises go to the [Futures page](Futures) and start from beginning.
 
 //: Traditional way to write asynchronous code:
 
@@ -31,11 +31,11 @@ loadChatRoom { chat, error in
     }
 }
 
-//: Same logic but with EasyFuture:
+//: Same logic but with EasyFutures:
 
 func loadChatRoom() -> Future<Chat> {
     
-    // create promise
+    // create the promise
     let promise = Promise<Chat>()
 
     // loading data from api
@@ -51,13 +51,13 @@ func loadChatRoom() -> Future<Chat> {
     }
     task.resume()
     
-    // return future
+    // return the future
     return promise.future
 }
 
 func loadUser(id: String) -> Future<User> {
     
-    // create promise
+    // create the promise
     let promise = Promise<User>()
     
     // loading user from api
@@ -73,7 +73,7 @@ func loadUser(id: String) -> Future<User> {
     }
     task.resume()
     
-    // return future
+    // return the future
     return promise.future
 }
 
@@ -87,6 +87,6 @@ loadChatRoom().flatMap({ chat -> Future<User> in
     // handle error
 }
 
-//: EasyFuture also support functional composition so you can use map(_ :), flatMap(_ :), filter(_ :), recover(_ :), zip(_ :), andThen(_ :) functions. To see more go to [Composition page](Composition).
+//: The EasyFutures also supports functional composition so you can use map(_ :), flatMap(_ :), filter(_ :), recover(_ :), zip(_ :), andThen(_ :) functions. To see more go to [Composition page](Composition).
 
 //: [Next page](@next)

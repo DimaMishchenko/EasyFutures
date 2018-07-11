@@ -10,7 +10,7 @@ import XCTest
 @testable import EasyFutures
 
 class FutureTests: XCTestCase {
-    
+
     // MARK: - Init
     
     func testInit_WithOperation_WithValue() {
@@ -34,11 +34,11 @@ class FutureTests: XCTestCase {
         XCTAssert(isSuccess)
     }
     
-    func testInit_WithOperation_WithThrowsError() {
+    func testInit_WithOperation_WithError() {
         
         //
         let future = Future<Bool> { (completion) in
-            throw DataGenerator.error
+            completion(.error(DataGenerator.error))
         }
         var isError = false
         
@@ -55,15 +55,36 @@ class FutureTests: XCTestCase {
         XCTAssert(isError)
     }
     
-    func testInit_WithOperation_WithError() {
+    func testInit_WithOperation_WithThrowsError() {
         
         //
         let future = Future<Bool> { (completion) in
-            completion(.error(DataGenerator.error))
+            throw DataGenerator.error
         }
         var isError = false
         
-        ///
+        //
+        future.onSuccess { (value) in
+            XCTFail()
+        }
+        
+        future.onError { (error) in
+            isError = true
+        }
+        
+        //
+        XCTAssert(isError)
+    }
+    
+    func testInit_WithOperation_WithThrowsErrorOnCompletion() {
+        
+        //
+        let future = Future<Bool> { (completion) in
+            completion(try throwsFunc(.value(true), error: DataGenerator.error, throw: true))
+        }
+        var isError = false
+        
+        //
         future.onSuccess { (value) in
             XCTFail()
         }
@@ -150,6 +171,94 @@ class FutureTests: XCTestCase {
         
         //
         XCTAssert(isError)
+    }
+    
+    func testInit_WithFuture_SuccessBeforeInit() {
+        
+        //
+        let future = Future<Bool>(value: true)
+        let newFuture = Future<Bool>(future: future)
+        var isSuccess = false
+        
+        //
+        newFuture.onSuccess { value in
+            isSuccess = true
+        }
+        
+        newFuture.onError { _  in
+            XCTFail()
+        }
+        
+        //
+        XCTAssert(isSuccess)
+        XCTAssert(newFuture.value == true)
+    }
+    
+    func testInit_WithFuture_SuccessAfterInit() {
+        
+        //
+        let future = Future<Bool>()
+        let newFuture = Future<Bool>(future: future)
+        var isSuccess = false
+        
+        //
+        newFuture.onSuccess { value in
+            isSuccess = true
+        }
+        
+        newFuture.onError { _  in
+            XCTFail()
+        }
+        
+        future.success(true)
+        
+        //
+        XCTAssert(isSuccess)
+        XCTAssert(newFuture.value == true)
+    }
+    
+    func testInit_WithFuture_ErrorBeforeInit() {
+        
+        //
+        let future = Future<Bool>(error: DataGenerator.error)
+        let newFuture = Future<Bool>(future: future)
+        var isError = false
+        
+        //
+        newFuture.onError { _  in
+            isError = true
+        }
+        
+        newFuture.onSuccess { value in
+            XCTFail()
+        }
+        
+        //
+        XCTAssert(isError)
+        XCTAssert(newFuture.isError)
+    }
+    
+    func testInit_WithFuture_ErrorAfterInit() {
+        
+        //
+        let future = Future<Bool>()
+        let newFuture = Future<Bool>(future: future)
+        var isError = false
+        
+        //
+        newFuture.onError { _  in
+            isError = true
+        }
+        
+        newFuture.onSuccess { value in
+            XCTFail()
+        }
+        
+        future.error(DataGenerator.error)
+        
+        //
+        XCTAssert(isError)
+        XCTAssert(newFuture.isError)
     }
     
     // MARK: - On complete

@@ -30,6 +30,11 @@ public class Promise<T> {
         
         future = Future<T>()
     }
+    
+    public func complete(_ otherFuture: Future<T>) {
+        
+        future.complete(otherFuture)
+    }
   
     public func complete(_ result: Future<T>.ResultType) {
         

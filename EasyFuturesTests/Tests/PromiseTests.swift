@@ -60,4 +60,32 @@ class PromiseTests: XCTestCase {
         XCTAssert(promise.future.isCompleted)
         XCTAssert(promise.future.isError)
     }
+    
+    func testComplete_WithFuture_WithValue() {
+        
+        //
+        let promise = Promise<Bool>()
+        let future = Future<Bool>(value: true)
+        
+        //
+        promise.complete(future)
+        
+        //
+        XCTAssert(promise.future.isCompleted)
+        XCTAssert(promise.future.isSuccess)
+    }
+    
+    func testComplete_WithFuture_WithError() {
+        
+        //
+        let promise = Promise<Bool>()
+        let future = Future<Bool>(error: DataGenerator.error)
+        
+        //
+        promise.complete(future)
+        
+        //
+        XCTAssert(promise.future.isCompleted)
+        XCTAssert(promise.future.isError)
+    }
 }

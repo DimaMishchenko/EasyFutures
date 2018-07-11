@@ -114,12 +114,12 @@
 			isa = PBXGroup;
 			children = (
 				9628E87E20F64A5D00C0B083 /* Future.swift */,
+				9628E88320F64A5D00C0B083 /* Promise.swift */,
 				9628E87F20F64A5D00C0B083 /* Sequence+Future.swift */,
 				9628E88020F64A5D00C0B083 /* Result.swift */,
-				9628E88120F64A5D00C0B083 /* EasyFutures.h */,
 				9628E88220F64A5D00C0B083 /* FutureType.swift */,
-				9628E88320F64A5D00C0B083 /* Promise.swift */,
 				9628E88420F64A5D00C0B083 /* FutureError.swift */,
+				9628E88120F64A5D00C0B083 /* EasyFutures.h */,
 				9628E88520F64A5D00C0B083 /* Info.plist */,
 			);
 			path = EasyFutures;
@@ -450,6 +450,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_TESTABILITY = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/EasyFutures/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

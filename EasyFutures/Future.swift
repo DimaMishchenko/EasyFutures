@@ -46,13 +46,12 @@ public class Future<T> {
     
     public init(operation: (@escaping CallbackBlock) throws -> ()) {
         
-        do {
-            try operation { result in
-                self.complete(result)
-            }
-        } catch {
-            complete(.error(error))
-        }
+        complete(operation)
+    }
+    
+    public init(future: Future<T>) {
+        
+        complete(future)
     }
     
     public convenience init(result: ResultType) {
@@ -76,6 +75,24 @@ public class Future<T> {
 // MARK: - Completions
 
 extension Future {
+    
+    internal func complete(_ operation: (@escaping CallbackBlock) throws -> ()) {
+        
+        do {
+            try operation { result in
+                self.complete(result)
+            }
+        } catch {
+            complete(.error(error))
+        }
+    }
+    
+    internal func complete(_ future: Future<T>) {
+        
+        future.onComplete { result in
+            self.complete(result)
+        }
+    }
     
     internal func complete(_ result: ResultType) {
         
