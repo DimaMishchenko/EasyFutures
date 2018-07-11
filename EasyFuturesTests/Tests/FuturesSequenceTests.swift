@@ -1,6 +1,6 @@
 //
 //  FuturesSequenceTests.swift
-//  EasyFutureTests
+//  EasyFuturesTests
 //
 //  Created by Dima Mishchenko on 09.07.2018.
 //  Copyright © 2018 Dima. All rights reserved.
@@ -9,7 +9,7 @@
 import Foundation
 
 import XCTest
-@testable import EasyFuture
+@testable import EasyFutures
 
 class FuturesSequenceTests: XCTestCase {
     

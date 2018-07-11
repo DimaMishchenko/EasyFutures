@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "964C3FE420E7A3260092D5D4"
-               BuildableName = "EasyFuture.framework"
-               BlueprintName = "EasyFuture"
-               ReferencedContainer = "container:EasyFuture.xcodeproj">
+               BuildableName = "EasyFutures.framework"
+               BlueprintName = "EasyFutures"
+               ReferencedContainer = "container:EasyFutures.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,9 +34,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "964C3FED20E7A3260092D5D4"
-               BuildableName = "EasyFutureTests.xctest"
-               BlueprintName = "EasyFutureTests"
-               ReferencedContainer = "container:EasyFuture.xcodeproj">
+               BuildableName = "EasyFuturesTests.xctest"
+               BlueprintName = "EasyFuturesTests"
+               ReferencedContainer = "container:EasyFutures.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,9 +44,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "964C3FE420E7A3260092D5D4"
-            BuildableName = "EasyFuture.framework"
-            BlueprintName = "EasyFuture"
-            ReferencedContainer = "container:EasyFuture.xcodeproj">
+            BuildableName = "EasyFutures.framework"
+            BlueprintName = "EasyFutures"
+            ReferencedContainer = "container:EasyFutures.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -66,9 +66,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "964C3FE420E7A3260092D5D4"
-            BuildableName = "EasyFuture.framework"
-            BlueprintName = "EasyFuture"
-            ReferencedContainer = "container:EasyFuture.xcodeproj">
+            BuildableName = "EasyFutures.framework"
+            BlueprintName = "EasyFutures"
+            ReferencedContainer = "container:EasyFutures.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -84,9 +84,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "964C3FE420E7A3260092D5D4"
-            BuildableName = "EasyFuture.framework"
-            BlueprintName = "EasyFuture"
-            ReferencedContainer = "container:EasyFuture.xcodeproj">
+            BuildableName = "EasyFutures.framework"
+            BlueprintName = "EasyFutures"
+            ReferencedContainer = "container:EasyFutures.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

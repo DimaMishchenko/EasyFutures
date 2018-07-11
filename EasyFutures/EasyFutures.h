@@ -22,12 +22,12 @@
 
 #import <UIKit/UIKit.h>
 
-//! Project version number for EasyFuture.
-FOUNDATION_EXPORT double EasyFutureVersionNumber;
+//! Project version number for EasyFutures.
+FOUNDATION_EXPORT double EasyFuturesVersionNumber;
 
-//! Project version string for EasyFuture.
-FOUNDATION_EXPORT const unsigned char EasyFutureVersionString[];
+//! Project version string for EasyFutures.
+FOUNDATION_EXPORT const unsigned char EasyFuturesVersionString[];
 
-// In this header, you should import all the public headers of your framework using statements like #import <EasyFuture/PublicHeader.h>
+// In this header, you should import all the public headers of your framework using statements like #import <EasyFutures/PublicHeader.h>
 
 

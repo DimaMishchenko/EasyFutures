@@ -1,1 +1,6 @@
-Script started on Tue Jul 10 00:37:05 2018
+language: swift
+osx_image: xcode9
+script:
+  - xcodebuild -version
+  - xcodebuild -project EasyFutures.xcodeproj -scheme iOSTests -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 6" -configuration Release ONLY_ACTIVE_ARCH=YES -enableCodeCoverage YES test
+  - bash <(curl -s https://codecov.io/bash) -cF ios

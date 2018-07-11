@@ -44,10 +44,14 @@ public class Future<T> {
     
     public init() {}
     
-    public init(operation: (@escaping CallbackBlock) -> ()) {
+    public init(operation: (@escaping CallbackBlock) throws -> ()) {
         
-        operation { result in
-            self.complete(result)
+        do {
+            try operation { result in
+                self.complete(result)
+            }
+        } catch {
+            complete(.error(error))
         }
     }
     
@@ -73,19 +77,19 @@ public class Future<T> {
 
 extension Future {
     
-    public func complete(_ result: ResultType) {
+    internal func complete(_ result: ResultType) {
         
         self.result = result
         callbacks.forEach { $0(result) }
         callbacks.removeAll()
     }
     
-    public func success(_ value: T) {
+    internal func success(_ value: T) {
         
         complete(.value(value))
     }
     
-    public func error(_ error: Error) {
+    internal func error(_ error: Error) {
         
         complete(.error(error))
     }
@@ -131,7 +135,7 @@ extension Future {
     }
 }
 
-// MARK: - Funtional composition
+// MARK: - Functional composition
 
 extension Future {
     

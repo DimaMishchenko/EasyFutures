@@ -1,6 +1,6 @@
 //
 //  EquatableError.swift
-//  EasyFutureTests
+//  EasyFuturesTests
 //
 //  Created by Dima Mishchenko on 04.07.2018.
 //  Copyright © 2018 Dima. All rights reserved.

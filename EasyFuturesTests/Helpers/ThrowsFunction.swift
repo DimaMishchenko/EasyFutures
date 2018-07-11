@@ -1,6 +1,6 @@
 //
 //  ThrowsFunction.swift
-//  EasyFutureTests
+//  EasyFuturesTests
 //
 //  Created by Dima Mishchenko on 05.07.2018.
 //  Copyright © 2018 Dima. All rights reserved.
