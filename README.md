@@ -19,7 +19,8 @@ Swift implementation of Futures & Promises. You can read more about Futures & Pr
 
 ## Documentation
 - Full documentation and more examples you can find in [Playground](EasyFuturesPlayground.playground) (to use playground you should open it in `EasyFutures.xcodeproj` and build EasyFutures framework).
-- Wiki //TODO:.
+- [Wiki](https://github.com/DimaMishchenko/EasyFutures/wiki) (full documentation and all examples).
+- [Unit tests](EasyFuturesTests).
 - [Examples section](#examples).
 
 ## Installation
@@ -244,7 +245,7 @@ future.flatten().onSuccess { value in
     print(value) // "value"
 }
 ```
-## Error handling
+## Errors handling
 [`map`](#map), [`flatMap`](#flatmap), [`filter`](#filter) and [`recover`](#recover) can catch errors and return the Future with this error, so you don't need to handle it with `do/catch`.
 ``` swift
 let future = Future<String>(value: "")
