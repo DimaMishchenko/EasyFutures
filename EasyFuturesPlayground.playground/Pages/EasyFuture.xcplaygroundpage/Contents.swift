@@ -1,6 +1,6 @@
 //: # EasyFutures
 //: To use this playground you should open it in EasyFutures.xcodeproj and build EasyFutures framework.
-//: # Contents:
+//: # Table of Contents:
 //: - [Quick Start](QuickStart)
 //: - [Futures](Futures)
 //: - [Promises](Promises)
