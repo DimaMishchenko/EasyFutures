@@ -23,14 +23,18 @@ Swift implementation of Futures & Promises. You can read more about Futures & Pr
 - [Unit tests](EasyFuturesTests).
 - [Examples section](#examples).
 
+## Requirements
+- iOS 9.0+
+
 ## Installation
-
-[CocoaPods](http://www.cocoapods.org):
-
+### [CocoaPods](http://www.cocoapods.org):
+- Add the following line to your [`Podfile`](http://guides.cocoapods.org/using/the-podfile.html):
 ``` ruby
 pod 'EasyFutures'
 ```
-
+- Add `use_frameworks!` to your [`Podfile`](http://guides.cocoapods.org/using/the-podfile.html).
+- Run `pod install`.
+- Add to files:
 ``` swift
 import EasyFutures
 ```
