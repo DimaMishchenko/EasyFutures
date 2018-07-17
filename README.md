@@ -41,18 +41,18 @@ func loadChatRoom(_ completion: (_ chat: Chat?, _ error: Error?) -> Void) {}
 func loadUser(id: String, _ completion: (_ user: User?, _ error: Error?) -> Void) {}
 
 loadChatRoom { chat, error in
-if let chat = chat {
-loadUser(id: chat.ownerId) { user, error in
-if let user = user {
-print(user)
-// owner loaded
-} else {
-// handle error
-}
-}
-} else {
-// handle error
-}
+    if let chat = chat {
+        loadUser(id: chat.ownerId) { user, error in
+            if let user = user {
+                print(user)
+                // owner loaded
+            } else {
+                // handle error
+            }
+        }
+    } else {
+        // handle error
+    }
 }
 ```
 Same logic but with **EasyFutures**:
@@ -61,12 +61,12 @@ func loadChatRoom() -> Future<Chat>
 func loadUser(id: String) -> Future<User> 
 
 loadChatRoom().flatMap({ chat -> Future<User> in
-// loading user
-return loadUser(id: chat.ownerId)
+    // loading user
+    return loadUser(id: chat.ownerId)
 }).onSuccess { user in
-// user loaded
+    // user loaded
 }.onError { error in
-// handle error
+    // handle error
 }
 ```
 ### Future
@@ -78,18 +78,18 @@ func loadData() -> Future<String>
 let future = loadData()
 
 future.onComplete { result in
-switch result {
-case .value(let value):
-// value
-case .error(let error):
-// error
-}
+    switch result {
+    case .value(let value):
+        // value
+    case .error(let error):
+        // error
+    }
 }
 
 future.onSuccess { data in
-// value
+    // value
 }.onError { error in
-// error
+    // error
 }
 ```
 ### Promise
@@ -97,39 +97,39 @@ The Promises are used to write functions that returns the Futures. The Promise c
 ``` swift
 func loadData() -> Future<String> {
 
-// create the promise with String type
-let promise = Promise<String>()
+    // create the promise with String type
+    let promise = Promise<String>()
 
-// check is url valid
-guard let url = URL(string: "https://api.github.com/emojis") else {
-// handle error
-promise.error(ExampleError.invalidUrl)
-return promise.future
-}
+    // check is url valid
+    guard let url = URL(string: "https://api.github.com/emojis") else {
+        // handle error
+        promise.error(ExampleError.invalidUrl)
+        return promise.future
+    }
 
-// loading data from url
-let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
-if let data = data, let string = String(data: data, encoding: .utf8) {
-// return result
-promise.success(string)
-} else {
-// handle error
-promise.error(ExampleError.cantLoadData)
-}
-}
-task.resume()
+    // loading data from url
+    let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
+        if let data = data, let string = String(data: data, encoding: .utf8) {
+            // return result
+            promise.success(string)
+        } else {
+            // handle error
+            promise.error(ExampleError.cantLoadData)
+        }
+    }
+    task.resume()
 
-// return the future
-return promise.future
+    // return the future
+    return promise.future
 }
 
 loadData().onSuccess { data in
-DispatchQueue.main.async {
-self.label.text = data
-}
+    DispatchQueue.main.async {
+        self.label.text = data
+    }
 }.onError { error in
-print(error)
-// handle error
+    print(error)
+    // handle error
 }
 ```
 ## Composition
@@ -139,19 +139,19 @@ Returns the new Future with the result you return to closure or with error if th
 
 let future = Future<Int>(value: 100)
 future.onSuccess { value in
-// value == 100
+    // value == 100
 }
 
 let mapFuture = future.map { value -> String in
-return "\(value) now it's string"
+    return "\(value) now it's string"
 }
 mapFuture.onComplete { result in
-switch result {
-case .value(let value):
-print(value) // "100 now it's string""
-case .error(let error):
-// handle error
-}
+    switch result {
+    case .value(let value):
+        print(value) // "100 now it's string""
+    case .error(let error):
+        // handle error
+    }
 }
 ```
 ### flatMap
@@ -160,10 +160,10 @@ Returns the new Future with the Future you return to closure or with error if th
 let future = Future<Int>(value: 1)
 
 let flatMapFuture = future.flatMap { value -> Future<String> in
-return Future<String>(value: "\(value * 100)%")
+    return Future<String>(value: "\(value * 100)%")
 }
 flatMapFuture.onSuccess { value in
-print(value) // "100%"
+    print(value) // "100%"
 }
 ```
 ### filter
@@ -172,25 +172,25 @@ Returns the Future if value satisfies the filtering else returns error.
 let future = Future<Int>(value: 500)
 
 future.filter { value -> Bool in
-return value > 100
+    return value > 100
 }.onComplete { result in
-switch result {
-case .value(let value):
-print(value) // 100
-case .error(let error):
-print(error) // no error
-}
+    switch result {
+    case .value(let value):
+        print(value) // 100
+    case .error(let error):
+        print(error) // no error
+    }
 }
 
 future.filter { value -> Bool in
-return value > 1000
+    return value > 1000
 }.onComplete { result in
-switch result {
-case .value(let value):
-print(value) // no value
-case .error(let error):
-print(error) // FutureError.filterError
-}
+    switch result {
+    case .value(let value):
+        print(value) // no value
+    case .error(let error):
+        print(error) // FutureError.filterError
+    }
 }
 ```
 ### recover
@@ -199,14 +199,14 @@ If the Future contains or will contain error you can recover it with the new val
 let future = Future<Int>(error: someError)
 
 future.recover { error -> Int in
-return 100
+    return 100
 }.onComplete { result in
-switch result {
-case .value(let value):
-print(value) // 100
-case .error(let error):
-print(error) // no error
-}
+    switch result {
+    case .value(let value):
+        print(value) // 100
+    case .error(let error):
+        print(error) // no error
+    }
 }
 ```
 ### zip
@@ -216,8 +216,8 @@ let first = Future<Int>(value: 1)
 let second = Future<Int>(value: 2)
 
 first.zip(second).onSuccess { firstValue, secondValue in
-print(firstValue) // 1
-print(secondValue) // 2
+    print(firstValue) // 1
+    print(secondValue) // 2
 }
 ```
 ### andThen
@@ -226,9 +226,9 @@ Returns the new Future with the same value.
 let future = Future<String>(value: "and")
 
 future.andThen { value in
-print(value) // "and"
+    print(value) // "and"
 }.andThen { value in
-print(value.count) // 3
+    print(value.count) // 3
 }
 ```
 ### flatten
@@ -237,11 +237,11 @@ If the value of the Future is the another Future you can flatten it.
 let future = Future<Future<String>>(value: Future<String>(value: "value"))
 
 future.onSuccess { value in
-print(value) // Future<String>(value: "value")
+    print(value) // Future<String>(value: "value")
 }
 
 future.flatten().onSuccess { value in
-print(value) // "value"
+    print(value) // "value"
 }
 ```
 ## Error handling
@@ -251,13 +251,13 @@ let future = Future<String>(value: "")
 let errorToThrow = NSError(domain: "", code: -1, userInfo: nil)
 
 future.map { value -> String in
-throw errorToThrow
+    throw errorToThrow
 }.flatMap { value -> Future<String> in
-throw errorToThrow
+    throw errorToThrow
 }.filter { value -> Bool in
-throw errorToThrow
+    throw errorToThrow
 }.recover { error -> String in
-throw errorToThrow
+    throw errorToThrow
 }
 ```
 ## Sequences
@@ -268,18 +268,18 @@ You can convert a list of the values into a single value. Fold returns the Futur
 let futures = [Future<Int>(value: 1), Future<Int>(value: 2), Future<Int>(value: 3)]
 
 futures.fold(0) { defaultValue, currentValue -> Int in
-return defaultValue + currentValue
+    return defaultValue + currentValue
 }.onSuccess { value in
-print(value) // 6
+    print(value) // 6
 }
 ```
 ### traverse
 Traverse can work with any sequence. Takes closure where you transform the value into the Future. Returns the Future which contains array of the values from the Futures returned by the closure.
 ``` swift 
 [1, 2, 3].traverse { number -> Future<String> in
-return Future<String>(value: "\(number * 100)")
+    return Future<String>(value: "\(number * 100)")
 }.onSuccess { value in
-print(value) // ["100", "200", "300"]
+    print(value) // ["100", "200", "300"]
 }
 ```
 ### sequence
@@ -288,8 +288,8 @@ Transforms a list of the Futures into the single Future with an array of values.
 let futures = [Future<Int>(value: 1), Future<Int>(value: 2), Future<Int>(value: 3)] // [Future<Int>, Future<Int>, Future<Int>]
 let sequence = futures.sequence() // Future<[Int]>
 sequence.onSuccess { numbers in
-print(numbers) // [1, 2, 3]
+    print(numbers) // [1, 2, 3]
 }
 ```
 ## License
-**UIImagePlusPDF** is under MIT license. See the [LICENSE](LICENSE) file for more info.
+**EasyFutures** is under MIT license. See the [LICENSE](LICENSE) file for more info.
