@@ -31,6 +31,9 @@ Swift implementation of Futures & Promises. You can read more about Futures & Pr
 - Add the following line to your [`Podfile`](http://guides.cocoapods.org/using/the-podfile.html):
 ``` ruby
 pod 'EasyFutures'
+
+#for swift less than 4.2 use:
+pod 'EasyFutures', '~> 1.1.0'
 ```
 - Add `use_frameworks!` to your [`Podfile`](http://guides.cocoapods.org/using/the-podfile.html).
 - Run `pod install`.
