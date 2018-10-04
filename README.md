@@ -1,5 +1,5 @@
 # EasyFutures
-[![Swift 4.1](https://img.shields.io/badge/Swift-4.1-orange.svg?style=flat)](https://developer.apple.com/swift/)
+[![Swift 4.2](https://img.shields.io/badge/Swift-4.2-orange.svg?style=flat)](https://developer.apple.com/swift/)
 [![CocoaPods compatible](https://img.shields.io/cocoapods/v/EasyFutures.svg)](https://cocoapods.org/pods/EasyFutures)
 [![Build Status](https://travis-ci.org/DimaMishchenko/EasyFutures.svg?branch=master)](https://travis-ci.org/DimaMishchenko/EasyFutures)
 [![codecov.io](https://codecov.io/gh/DimaMishchenko/EasyFutures/branch/master/graphs/badge.svg)](https://codecov.io/gh/DimaMishchenko/EasyFutures)
@@ -19,17 +19,25 @@ Swift implementation of Futures & Promises. You can read more about Futures & Pr
 
 ## Documentation
 - Full documentation and more examples you can find in [Playground](EasyFuturesPlayground.playground) (to use playground you should open it in `EasyFutures.xcodeproj` and build EasyFutures framework).
-- Wiki //TODO:.
+- [Wiki](https://github.com/DimaMishchenko/EasyFutures/wiki) (full documentation and all examples).
+- [Unit tests](EasyFuturesTests).
 - [Examples section](#examples).
 
+## Requirements
+- iOS 9.0+
+
 ## Installation
-
-[CocoaPods](http://www.cocoapods.org):
-
+### [CocoaPods](http://www.cocoapods.org):
+- Add the following line to your [`Podfile`](http://guides.cocoapods.org/using/the-podfile.html):
 ``` ruby
 pod 'EasyFutures'
-```
 
+#for swift less than 4.2 use:
+pod 'EasyFutures', '~> 1.1.0'
+```
+- Add `use_frameworks!` to your [`Podfile`](http://guides.cocoapods.org/using/the-podfile.html).
+- Run `pod install`.
+- Add to files:
 ``` swift
 import EasyFutures
 ```
@@ -244,7 +252,7 @@ future.flatten().onSuccess { value in
     print(value) // "value"
 }
 ```
-## Error handling
+## Errors handling
 [`map`](#map), [`flatMap`](#flatmap), [`filter`](#filter) and [`recover`](#recover) can catch errors and return the Future with this error, so you don't need to handle it with `do/catch`.
 ``` swift
 let future = Future<String>(value: "")
