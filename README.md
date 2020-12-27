@@ -1,3 +1,7 @@
+# ❗️Archived now❗️
+Since Apple released [`Combine`](https://developer.apple.com/documentation/combine) framework, I decide to archive this repo.
+You still can use this repo as an example of `Future`/`Promise` implementation in `Swift`.
+
 # EasyFutures
 [![Swift 4.2](https://img.shields.io/badge/Swift-4.2-orange.svg?style=flat)](https://developer.apple.com/swift/)
 [![CocoaPods compatible](https://img.shields.io/cocoapods/v/EasyFutures.svg)](https://cocoapods.org/pods/EasyFutures)
